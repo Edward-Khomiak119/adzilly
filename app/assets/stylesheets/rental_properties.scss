@@ -1,0 +1,228 @@
+// Place all the styles related to the RentalProperties controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .price, .distance {
+//     text-align: right;
+// }
+
+.form input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form input[type=submit] {
+  width: 100%;
+  background-color: #A1D33C;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form input[type=submit]:hover {
+  background-color: #90C22B;
+}
+
+.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+.button-navigate a:link, .button-navigate a:visited {
+  background-color: #A1D33C; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width: auto;
+}
+
+.button-navigate a:hover,.button-navigate a:active {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #90C22B;
+}
+
+.submit input[type=submit], .submit a{
+  background-color: #A1D33C; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+}
+
+.show_image{
+  padding: 10px;
+  display: inline-block;
+  margin:auto;
+}
+
+.middle{
+  padding: 15px;
+  margin: auto;
+}
+
+.header {
+  font-size: 96px;
+}
+
+
+.description {
+  width: 20%
+}
+
+// .footer-info{
+//     display: inline-block;
+// }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// css for the new index page
+
+.logo img{
+
+width: 150px;
+height: 45px;
+margin: 35px 0px 0px 40px;
+top: 37px;
+
+}
+
+.searchbar input{
+margin-top: 20px;
+width: 100%;
+height: 60px;
+padding-left: 7.5%;
+// left: 50px;
+// top: 20px;
+
+background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 3px;
+}
+
+
+.signin button{
+
+    width: 153px;
+    height: 49px;
+    margin: 20px 0px 0px 100px;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    color: #A1D33C;
+    background:none;
+    border:none;
+
+    padding:0;
+    cursor: pointer;
+
+
+}
+
+.theline{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 78px;
+    margin-top: 30px;
+}
+
+.selectors{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.selectors button{
+    color: #A1D33C;
+}
+.selectors button:hover{
+    color: black;
+    background-color: #A1D33C;
+}
+
+.heady h3{
+    margin: 30px 0px 0px 40px;
+}
+
+.thepics{
+    margin: 50px 0px 20px 40px;
+}
+
+
+.the2pics{
+    margin: 50px 0px 0px 50px;
+}
+
+
+.carousel-inner{
+  margin: 0px 0px 0px 0px;
+}
+.heads{
+color: #A1D33C;
+font-family: Muli;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 30px;
+margin: 0px 0px 0px 0px;
+}
+
+.desc{
+
+font-family: Muli;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 25px;
+
+color: #000000;
+
+}
+
+.poice{
+font-family: Muli;
+font-style: normal;
+font-weight: 200;
+font-size: 14px;
+line-height: 23px;
+
+color: #000000;
+}

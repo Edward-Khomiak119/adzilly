@@ -1,0 +1,273 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ * = require_tree .
+ * = require_self
+ */
+
+ @import "bootstrap";
+  
+ 
+ .logo{
+   padding-top: 22.5px;
+   padding-left: 2.5%;
+ }
+
+ #footer{
+   color: white;
+   margin-top: 30px;
+   padding: 7px;
+   position: relative;
+   bottom: 0;
+   width: 100%;
+   background: black;
+
+ }
+
+ .footer-images{
+   margin: auto;
+   display: inline-block;
+ }
+
+.right {
+  display: inline-block;
+  margin-left: 80%;
+  /* position: relative;
+  left: 110; */
+}
+
+.form input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form input[type=checkbox] {
+  width: auto;
+  margin-bottom: .5px;
+  padding-top: 2px;
+}
+
+.form input[type=submit] {
+  width: 100%;
+  background-color: #A1D33C;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form input[type=submit]:hover {
+  background-color: #90C22B;
+}
+
+.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.checkbox {
+  display: block;
+}
+
+
+a.button-header-navigation{
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 120px;
+  float: right;
+  padding-right: 2.5%;
+  padding-left: 2.5%;
+  vertical-align: middle;
+  color: black;
+
+}
+
+a:hover.button-header-navigation, a:active.button-header-navigation {
+  background: black;
+  color: #A1D33C;
+  text-decoration: none;
+}
+
+.button-navigate a:link, .button-navigate a:visited {
+  background-color: #A1D33C; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width: auto;
+}
+
+.button-navigate a:hover,.button-navigate a:active {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #90C22B;
+}
+
+.button-login a:link, .button-login a:visited{
+  font-size: 12px;
+  background-color: #A1D33C; /* Green */
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 1px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width: auto;
+}
+
+.button-login a:hover, .button-login a:active {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #90C22B;
+}
+
+.submit input[type=submit], .submit a{
+  background-color: #A1D33C; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+}
+
+.show_image{
+  padding: 10px;
+  display: inline-block;
+  margin:auto;
+}
+
+.middle{
+  padding: 15px;
+  margin: auto;
+}
+
+.header {
+  font-size: 96px;
+}
+
+
+.description {
+  width: 20%
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.user-info {
+  font-size: 12px;
+}
+
+
+/// Dropdown Menue!!! ////
+.dropbtn {
+  visibility: hidden;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 5%;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+a.button-header-navigation{
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 120px;
+  float: right;
+  padding-right: 2.5%;
+  padding-left: 2.5%;
+  vertical-align: middle;
+  color: black;
+
+}
+
+a:hover.button-header-navigation, a:active.button-header-navigation {
+  background: black;
+  color: #A1D33C;
+  text-decoration: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 120px;
+  text-decoration: none;
+  width: 100%;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 7;
+}
+
+.dropdown-content a {
+  color: black;
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: black;
+  color: #A1D33C;
+  text-decoration: none;
+}
+
+.show {
+  display: block;
+}
+
+@media screen and (max-width: 960px) {
+  /* For mobile phones: */
+  .dropbtn {
+    visibility: visible;
+  }
+  .button-header-navigation{
+    visibility: hidden;
+  }
+}
+

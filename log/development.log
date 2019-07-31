@@ -1,0 +1,611 @@
+Started GET "/" for ::1 at 2019-07-17 18:48:13 +0300
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (102.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (102.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRentalProperties (20170904184345)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "rental_properties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "address" text, "price" decimal(10,2) NOT NULL, "latitude" decimal(15,10) NOT NULL, "longitude" decimal(15,10) NOT NULL, "email" varchar, "industry" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170904184345"]]
+  [1m[35m (110.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActiveStorageTables (20190316231757)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190316231757"]]
+  [1m[35m (88.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (20190407190501)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "username" varchar NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190407190501"]]
+  [1m[35m (132.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePhotos (20190423010515)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "photos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" text, "user_id" integer, "rental_property_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190423010515"]]
+  [1m[35m (90.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDescrptions (20190503183521)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "descrptions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "rental_property_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190503183521"]]
+  [1m[35m (128.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImageUrl (20190621223006)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "rental_properties" ADD "image_url" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190621223006"]]
+  [1m[35m (103.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-07-17 15:48:31.036234"], ["updated_at", "2019-07-17 15:48:31.036234"]]
+  [1m[35m (70.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mRentalProperty Destroy (177.6ms)[0m  [1m[31mDELETE FROM "rental_properties"[0m
+  [1m[36mUser Destroy (71.8ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "user"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "user@email.com"], ["encrypted_password", "$2a$11$fsESn9sxFZFXOFKc5.zVCuJh9h32SyJMJlKnQO2WLmC5QnV3b/1ti"], ["username", "user"], ["created_at", "2019-07-17 15:48:44.979905"], ["updated_at", "2019-07-17 15:48:44.979905"]]
+  [1m[35m (92.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRentalProperty Create (0.5ms)[0m  [1m[32mINSERT INTO "rental_properties" ("title", "description", "address", "price", "latitude", "longitude", "email", "industry", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Conans Gym"], ["description", "We are a traditional gym located in Syracuse Ny. We have appoximatly 125 people a day"], ["address", "911 N Salina St, Syracuse, NY 13208"], ["price", 25.0], ["latitude", 43.0631207904], ["longitude", -76.1553250176], ["email", "scopani3393@hotmail.com"], ["industry", "Health/fitness"], ["user_id", 1], ["created_at", "2019-07-17 15:48:46.873881"], ["updated_at", "2019-07-17 15:48:46.873881"]]
+  [1m[35m (127.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRentalProperty Create (0.4ms)[0m  [1m[32mINSERT INTO "rental_properties" ("title", "description", "address", "price", "latitude", "longitude", "email", "industry", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Flight Room Fitness"], ["description", "High end cross training facility with around 200 active daily members."], ["address", "333 Pulaski St, Syracuse, NY 13204"], ["price", 75.0], ["latitude", 43.05996], ["longitude", -76.17392], ["email", "FlightRoomSyracuse@gmail.com"], ["industry", "Health/fitness"], ["user_id", 1], ["created_at", "2019-07-17 15:48:50.031637"], ["updated_at", "2019-07-17 15:48:50.031637"]]
+  [1m[35m (83.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRentalProperty Create (0.4ms)[0m  [1m[32mINSERT INTO "rental_properties" ("title", "description", "address", "price", "latitude", "longitude", "email", "industry", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Sweat by Flight Room"], ["description", "New Spin Studio located in downtown Syracuse."], ["address", "333 Pulaski St, Syracuse, NY 13204"], ["price", 75.0], ["latitude", 43.0598356994], ["longitude", -76.1733700129], ["email", "FlightRoomSyracuse@gmail.com"], ["industry", "Health/fitness"], ["user_id", 1], ["created_at", "2019-07-17 15:48:50.943587"], ["updated_at", "2019-07-17 15:48:50.943587"]]
+  [1m[35m (63.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRentalProperty Create (0.4ms)[0m  [1m[32mINSERT INTO "rental_properties" ("title", "description", "address", "price", "latitude", "longitude", "email", "industry", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Hercules Gym"], ["description", "24 hour power lifting gym"], ["address", "6361 Thompson Rd, Syracuse, NY 13206"], ["price", 30.0], ["latitude", 43.0609912], ["longitude", -76.0853906], ["email", "Knutsen.pete@gmail.com"], ["industry", "Health/fitness"], ["user_id", 1], ["created_at", "2019-07-17 15:48:51.950636"], ["updated_at", "2019-07-17 15:48:51.950636"]]
+  [1m[35m (101.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRentalProperty Create (0.4ms)[0m  [1m[32mINSERT INTO "rental_properties" ("title", "description", "address", "price", "latitude", "longitude", "industry", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Metro Fitness"], ["description", "High end fitness establishment with over 200 customers a day"], ["address", "205 S Salina St #1a, Syracuse, NY 13202"], ["price", 70.0], ["latitude", 43.04915], ["longitude", -76.15198], ["industry", "Health/fitness"], ["user_id", 1], ["created_at", "2019-07-17 15:48:55.057517"], ["updated_at", "2019-07-17 15:48:55.057517"]]
+  [1m[35m (90.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRentalProperty Create (0.4ms)[0m  [1m[32mINSERT INTO "rental_properties" ("title", "description", "address", "price", "latitude", "longitude", "email", "industry", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Absolute Performance Training"], ["description", "Sports performance gym. We have clients ranging from 8-65 years old. Largest portion are middle aged women and men. Also high school and college athletes."], ["address", "5 Plain Av, New Rochelle, NY 10801"], ["price", 75.0], ["latitude", 40.9282831804], ["longitude", -73.7715691123], ["email", "Andrew@absolute.com"], ["industry", "Health/fitness"], ["user_id", 1], ["created_at", "2019-07-17 15:48:55.888332"], ["updated_at", "2019-07-17 15:48:55.888332"]]
+  [1m[35m (150.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRentalProperty Create (0.4ms)[0m  [1m[32mINSERT INTO "rental_properties" ("title", "description", "address", "price", "latitude", "longitude", "email", "industry", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Crossfit Result"], ["description", "We are a fully certified Cross Fit gym located in Westchester county. Our members range from 20 - 60 years old. The majority of our members are between 20 and 30"], ["address", "5 Plain Av, New Rochelle, NY 10801"], ["price", 80.0], ["latitude", 40.9282831804], ["longitude", -73.7715691123], ["email", "Sheaw@crossfitresult.com"], ["industry", "Health/fitness"], ["user_id", 1], ["created_at", "2019-07-17 15:48:57.854819"], ["updated_at", "2019-07-17 15:48:57.854819"]]
+  [1m[35m (90.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2019-07-17 18:49:14 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (10386.4ms)
+Completed 200 OK in 10559ms (Views: 10514.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-17 18:49:31 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (54.3ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (229.5ms)
+Completed 200 OK in 374ms (Views: 255.7ms | ActiveRecord: 56.4ms)
+
+
+Started GET "/rental_properties/4" for ::1 at 2019-07-17 18:49:36 +0300
+Processing by RentalPropertiesController#show as HTML
+  Parameters: {"id"=>"4"}
+location  
+  [1m[36mRentalProperty Load (0.4ms)[0m  [1m[34mSELECT  "rental_properties".* FROM "rental_properties" WHERE "rental_properties"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering rental_properties/show.html.haml within layouts/application
+  [1m[36mActiveStorage::Attachment Load (9.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 4], ["record_type", "RentalProperty"], ["name", "images"]]
+  Rendered rental_properties/show.html.haml within layouts/application (89.7ms)
+Completed 200 OK in 158ms (Views: 118.4ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-17 18:49:40 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (0.3ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (12.5ms)
+Completed 200 OK in 64ms (Views: 62.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/rental_properties/3" for ::1 at 2019-07-17 18:49:41 +0300
+Processing by RentalPropertiesController#show as HTML
+  Parameters: {"id"=>"3"}
+location  
+  [1m[36mRentalProperty Load (0.1ms)[0m  [1m[34mSELECT  "rental_properties".* FROM "rental_properties" WHERE "rental_properties"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering rental_properties/show.html.haml within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 3], ["record_type", "RentalProperty"], ["name", "images"]]
+  Rendered rental_properties/show.html.haml within layouts/application (13.2ms)
+Completed 200 OK in 67ms (Views: 64.6ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2019-07-18 19:20:35 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (725.4ms)
+Completed 200 OK in 981ms (Views: 959.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for ::1 at 2019-07-18 19:20:41 +0300
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (11.1ms)
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-18 19:20:49 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (5.2ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (147.9ms)
+Completed 200 OK in 240ms (Views: 179.4ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/rental_properties/1" for ::1 at 2019-07-18 19:20:53 +0300
+Processing by RentalPropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+location  
+  [1m[36mRentalProperty Load (0.2ms)[0m  [1m[34mSELECT  "rental_properties".* FROM "rental_properties" WHERE "rental_properties"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering rental_properties/show.html.haml within layouts/application
+  [1m[36mActiveStorage::Attachment Load (9.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "RentalProperty"], ["name", "images"]]
+  Rendered rental_properties/show.html.haml within layouts/application (64.9ms)
+Completed 200 OK in 132ms (Views: 81.1ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-18 19:20:54 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (0.3ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (13.6ms)
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/rental_properties/6" for ::1 at 2019-07-18 19:20:55 +0300
+Processing by RentalPropertiesController#show as HTML
+  Parameters: {"id"=>"6"}
+location  
+  [1m[36mRentalProperty Load (0.2ms)[0m  [1m[34mSELECT  "rental_properties".* FROM "rental_properties" WHERE "rental_properties"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering rental_properties/show.html.haml within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 6], ["record_type", "RentalProperty"], ["name", "images"]]
+  Rendered rental_properties/show.html.haml within layouts/application (13.5ms)
+Completed 200 OK in 70ms (Views: 66.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-18 19:20:56 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (0.7ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (40.6ms)
+Completed 200 OK in 70ms (Views: 66.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-07-18 19:20:57 +0300
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `presigned_post' for nil:NilClass
+Did you mean?  presence_in):
+  
+app/controllers/application_controller.rb:11:in `set_s3_direct_post'
+Started GET "/users/sign_up" for ::1 at 2019-07-18 19:21:10 +0300
+Processing by Devise::RegistrationsController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `presigned_post' for nil:NilClass
+Did you mean?  presence_in):
+  
+app/controllers/application_controller.rb:11:in `set_s3_direct_post'
+Started GET "/rental_properties" for ::1 at 2019-07-18 19:21:15 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (0.3ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (11.6ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-07-18 19:24:41 +0300
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `presigned_post' for nil:NilClass
+Did you mean?  presence_in):
+  
+app/controllers/application_controller.rb:11:in `set_s3_direct_post'
+Started GET "/rental_properties" for ::1 at 2019-07-18 19:24:43 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (0.3ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (12.1ms)
+Completed 200 OK in 44ms (Views: 41.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-18 19:27:49 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (0.3ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (11.9ms)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-07-19 19:02:11 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/scrumfatory/school/adzilly/app/controllers/application_controller.rb:23: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/application_controller.rb:23: syntax error, unexpected end-of-input, expecting end
+app/controllers/pages_controller.rb:1:in `<top (required)>'
+Started GET "/" for ::1 at 2019-07-19 19:02:35 +0300
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (711.4ms)
+Completed 200 OK in 899ms (Views: 894.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-07-19 19:02:40 +0300
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `configure_permitted_parameters' for #<Devise::SessionsController:0x00007f09f45e4458>):
+  
+activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.3) lib/active_support/callbacks.rb:179:in `block (2 levels) in halting_and_conditional'
+actionpack (5.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.3) lib/active_support/callbacks.rb:180:in `block in halting_and_conditional'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/sign_up" for ::1 at 2019-07-19 19:02:47 +0300
+Processing by Devise::RegistrationsController#new as HTML
+Completed 500 Internal Server Error in 153ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `configure_permitted_parameters' for #<Devise::RegistrationsController:0x00007f0a01401ae8>):
+  
+activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.3) lib/active_support/callbacks.rb:179:in `block (2 levels) in halting_and_conditional'
+actionpack (5.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.3) lib/active_support/callbacks.rb:180:in `block in halting_and_conditional'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/sign_up" for ::1 at 2019-07-19 19:03:34 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.1ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (93.9ms)
+Completed 200 OK in 193ms (Views: 153.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-07-19 19:03:38 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-07-19 19:03:40 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (14.0ms)
+Completed 200 OK in 68ms (Views: 66.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-07-19 19:03:42 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-07-19 19:03:47 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-07-19 19:03:51 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-07-19 19:07:57 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-07-19 19:07:58 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 36ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-19 19:07:58 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (11.6ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (117.2ms)
+Completed 200 OK in 219ms (Views: 132.3ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-19 19:11:19 +0300
+  [1m[35m (10.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (0.3ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (69.2ms)
+Completed 200 OK in 979ms (Views: 948.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/home" for ::1 at 2019-07-19 19:11:27 +0300
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (9.5ms)
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rental_properties" for ::1 at 2019-07-19 19:11:31 +0300
+Processing by RentalPropertiesController#index as HTML
+location  
+  Rendering rental_properties/index.html.haml within layouts/application
+  [1m[36mRentalProperty Load (0.4ms)[0m  [1m[34mSELECT rental_properties.*, (69.09332411348201 * ABS(rental_properties.latitude - 43.6307863) * 0.7071067811865475) + (59.836573914187355 * ABS(rental_properties.longitude - -74.4659275) * 0.7071067811865475) AS distance, CASE WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude >= -74.4659275) THEN  45.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude >= -74.4659275) THEN 135.0 WHEN (rental_properties.latitude <  43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 225.0 WHEN (rental_properties.latitude >= 43.6307863 AND rental_properties.longitude <  -74.4659275) THEN 315.0 END AS bearing FROM "rental_properties" WHERE (rental_properties.latitude BETWEEN -101.10099681084797 AND 188.36256941084798 AND rental_properties.longitude BETWEEN -274.4266091345306 AND 125.49475413453062) ORDER BY distance ASC[0m
+  Rendered rental_properties/index.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-07-19 19:11:32 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (10.1ms)
+Completed 200 OK in 51ms (Views: 35.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-07-19 19:11:37 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-31 15:03:00 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (1116.9ms)
+Completed 200 OK in 1339ms (Views: 1329.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-31 15:08:07 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (265.6ms)
+Completed 200 OK in 330ms (Views: 323.3ms | ActiveRecord: 0.0ms)
+
+
